@@ -78,6 +78,7 @@ namespace BasicConceptCSharpConsoleApplication
                         ExceptionConcepts();
                         break;
                     case "9":
+                        Console.WriteLine("Unsafe code has not been implemented yet.");
                         /*UnsafeCodeConcepts();*/
                         break;
                     case "10":
