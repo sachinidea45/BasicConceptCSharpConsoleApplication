@@ -129,7 +129,7 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine("Size Of Double:\t" + sizeof(double));
             //Console.WriteLine(sizeof(dynamic));//cannot take the address of, get the size of, or declare a pointer to a manged type ('dynamic') dynamic does not have a predefined size.
             MyHelper.PrintPointsToRememberMessage();
-            Console.WriteLine("1. cannot take the address of, get the size of, or declare a pointer to a manged type ('dynamic') dynamic does not have a predefined size");
+            Console.WriteLine("1. cannot take the address of, get the size of, or declare a pointer to a managed type ('dynamic') dynamic does not have a predefined size");
             Console.WriteLine("2. You Can debug and validate it.");
             MyHelper.PrintEndMessage();
         }
@@ -243,6 +243,9 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine(x);
             x = Console.ReadLine();
             Console.WriteLine(x);
+            MyHelper.PrintPointsToRememberMessage();
+            Console.WriteLine("1. Variable of var type needs initialization at the time of declaration(compile time) so the type decides at the same time and cannot change later.");
+            Console.WriteLine("2. Variable of dynamic type can be change at run time by just assigning the value and can be declare without initialization.");
             MyHelper.PrintNoteConcept();
             MyHelper.PrintEndMessage();
         }
@@ -253,7 +256,7 @@ namespace BasicConceptCSharpConsoleApplication
         {
             Employee refObjA = null;
             GetrefValue(ref refObjA);
-            //Console.WriteLine(refObjA.MyName);
+            //Console.WriteLine(refObjA.EmployeeName);
 
             Employee refObjB = new Employee("Assigned Object Before ref calling Method");
             Console.WriteLine(refObjB.EmployeeName);
@@ -270,8 +273,8 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine(outObjB.EmployeeName);
 
             MyHelper.PrintPointsToRememberMessage();
-            Console.WriteLine("1. In case of passing object(including null) as ref, the ref parameter  may or may not be assigned to before the control leaves the current method.");
-            Console.WriteLine("2. In case of passing object(including null) as out, the out parameter must be assigned to before control leacves the current method.");
+            Console.WriteLine("1. In case of passing object(including null) as ref, the ref parameter may or may not be assigned to before the control leaves the current method.");
+            Console.WriteLine("2. In case of passing object(including null) as out, the out parameter must be assigned to before control leaves the current method.");
             MyHelper.PrintNoteConcept();
 
             MyHelper.PrintEndMessage();
@@ -714,7 +717,7 @@ namespace BasicConceptCSharpConsoleApplication
                 //Assigning method to delegates
                 del1 = () => { myValue = 10; return myValue > input; };//Method1
                 del2 = (x) => { return x == myValue; };//Method2
-                //As the methog as only been assigned not executed so value of j will be 0
+                //As the method has only been assigned not executed so value of j will be 0
                 Console.WriteLine("myValue={0}", myValue);
                 //Calling del2 assigned method
                 Console.WriteLine(del2(10));

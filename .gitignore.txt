@@ -1,0 +1,4 @@
+# Microsoft Fakes
+CSharpConsoleApplication/.vs/**
+CSharpConsoleApplication/BasicConceptCSharpConsoleApplication/obj/**
+CSharpConsoleApplication/BasicConceptCSharpConsoleApplication/bin/**
