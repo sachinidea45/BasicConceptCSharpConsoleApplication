@@ -11,7 +11,28 @@ namespace BasicConceptCSharpConsoleApplication
     {
         static void Main()
         {
-            string[] options = new string[]
+            var options = GetOptionsList();            
+            bool beActive = true;
+            do
+            {
+                var choice = PrintOptions(options);
+                if(choice == "0")
+                {
+                    beActive = false;
+                    Console.ReadKey();
+                }
+                else
+                {
+                    PerformSelectedOptions(choice);
+                }
+                
+            } while (beActive);
+        }
+
+        #region Get Options
+        static string[] GetOptionsList()
+        {
+            return new string[]
             {
                 "0. Exit",
                 "1. Size of Data Type",
@@ -32,26 +53,32 @@ namespace BasicConceptCSharpConsoleApplication
                 "16. Delegate Concept",
                 "17. Stack Queue Concept",
             };
+        }
+        #endregion
 
-            bool beActive = true;
-            do
+        static string PrintOptions(string[] options)
+        {
+            MyHelper.PrintBorder();
+            Console.WriteLine("Please Select from the following option:");
+            foreach (var item in options)
             {
-                MyHelper.PrintBorder();
-                Console.WriteLine("Please Select from the following option:");
-                foreach (var item in options)
-                {
-                    Console.WriteLine(item);
-                }
-                MyHelper.PrintBorder();
+                Console.WriteLine(item);
+            }
+            MyHelper.PrintBorder();
 
-                string choice = Console.ReadLine().ToString();
-                MyHelper.PrintBorder();
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.ForegroundColor = ConsoleColor.DarkBlue;
-                Console.WriteLine(options[Convert.ToInt32(choice)]);
-                Console.ResetColor();
-                MyHelper.PrintBorder();
-                switch (choice)
+            string choice = Console.ReadLine().ToString();
+            MyHelper.PrintBorder();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine(options[Convert.ToInt32(choice)]);
+            Console.ResetColor();
+            MyHelper.PrintBorder();
+            return choice;
+        }
+
+        static void PerformSelectedOptions(string choice)
+        {
+            switch (choice)
                 {
                     case "1":
                         SizeOfDataType();
@@ -105,15 +132,10 @@ namespace BasicConceptCSharpConsoleApplication
                     case "17":
                         StackQueueConcept();
                         break; ;
-                    case "0":
-                        beActive = false;
-                        Console.ReadKey();
-                        break;
                     default:
                         Console.WriteLine("You have selected a wrong option. Please Try Again!!");
                         break;
                 }
-            } while (beActive);
         }
 
         #region Size of Data Type
