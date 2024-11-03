@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/BasicConceptCSharpConsoleApplication
+/src/CSharpBasicConceptConsoleApplication/obj/Debug
+/src/CSharpBasicConceptConsoleApplication/bin/Debug
