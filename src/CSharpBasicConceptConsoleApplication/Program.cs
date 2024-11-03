@@ -2,14 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BasicConceptCSharpConsoleApplication
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             var options = GetOptionsList();            
             bool beActive = true;
@@ -83,55 +81,76 @@ namespace BasicConceptCSharpConsoleApplication
                     case "1":
                         SizeOfDataType();
                         break;
+
                     case "2":
                         CharAnsiValue();
                         break;
+
                     case "3":
                         BasicConcepts();
                         break;
+
                     case "4":
                         StaticNonStaticConcepts();
                         break;
+
                     case "5":
                         VarDynamicConcept();
                         break;
+
                     case "6":
                         OutRefConcept();
                         break;
+
                     case "7":
                         StringConcepts();
                         break;
+
                     case "8":
                         ExceptionConcepts();
                         break;
+
                     case "9":
                         Console.WriteLine("Unsafe code has not been implemented yet.");
                         /*UnsafeCodeConcepts();*/
                         break;
+
                     case "10":
                         InterfacePropertyConcept();
                         break;
+
                     case "11":
                         InterfaceSameMethodConcept();
                         break;
+
                     case "12":
                         MethodSignatureConcept();
                         break;
+
                     case "13":
                         PolymorphismConcepts();
                         break;
+
                     case "14":
                         LinqConcept();
                         break;
+
                     case "15":
                         ExtensionMethodConcept();
                         break;
+
                     case "16":
                         DelegatesConcept();
                         break;
+
                     case "17":
                         StackQueueConcept();
                         break; ;
+                    case "0":
+                        beActive = false;
+                        Console.ReadKey();
+                        break;
+
                     default:
                         Console.WriteLine("You have selected a wrong option. Please Try Again!!");
                         break;
@@ -139,7 +158,8 @@ namespace BasicConceptCSharpConsoleApplication
         }
 
         #region Size of Data Type
-        static void SizeOfDataType()
+
+        private static void SizeOfDataType()
         {
             Console.WriteLine("Size Of Int:\t" + sizeof(int));
             Console.WriteLine("Size Of Char:\t" + sizeof(char));
@@ -155,10 +175,12 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine("2. You Can debug and validate it.");
             MyHelper.PrintEndMessage();
         }
-        #endregion
+
+        #endregion Size of Data Type
 
         #region ANSI value of char
-        static void CharAnsiValue()
+
+        private static void CharAnsiValue()
         {
             for (int i = 1; i < 150; i++)
             {
@@ -166,20 +188,25 @@ namespace BasicConceptCSharpConsoleApplication
             }
             MyHelper.PrintEndMessage();
         }
-        #endregion
+
+        #endregion ANSI value of char
 
         #region BasicConcepts
-        static void BasicConcepts()
+
+        private static void BasicConcepts()
         {
             #region OperatorConcepts
+
             MyHelper.PrintHeaderMessage("Operator Concepts");
             int a = 4, b = 2;
             a -= b /= a;
             Console.WriteLine("a:" + a + "\nb:" + b);
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion OperatorConcepts
 
             #region Float and int concepts
+
             MyHelper.PrintHeaderMessage("Float and Int Concepts");
             float x = 16.4f;
             int y = 12;
@@ -187,9 +214,11 @@ namespace BasicConceptCSharpConsoleApplication
             z = x * (y + x) / (x - y);
             Console.WriteLine("Result is :" + z);
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion Float and int concepts
 
             #region Nullable Concepts
+
             MyHelper.PrintHeaderMessage("Nullable Concepts");
             int? count = null;
             int? result = null;
@@ -201,41 +230,50 @@ namespace BasicConceptCSharpConsoleApplication
                 Console.WriteLine("result has no value");
             MyHelper.PrintNoteConcept();
             MyHelper.PrintEndMessage();
-            #endregion
+
+            #endregion Nullable Concepts
         }
-        #endregion
+
+        #endregion BasicConcepts
 
         #region Static Non Static Concepts
-        static void StaticNonStaticConcepts()
+
+        private static void StaticNonStaticConcepts()
         {
             #region Calling Static Method from Non Static Method
+
             MyHelper.PrintHeaderMessage("Calling Static Method from Non Static Method");
             StaticNonStaticConceptClass obj = new StaticNonStaticConceptClass();
             StaticNonStaticConceptClass.StaticMethod();
             obj.NonStaticMethod(20);
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion Calling Static Method from Non Static Method
 
             #region Static and Non Static Method having Same signature
+
             MyHelper.PrintHeaderMessage("Static and Non Static Method having Same signature");
             StaticNonStaticConceptClass.GetSum(3, 2);
             obj.GetSum2(3, 2);
             MyHelper.PrintNoteConcept();
             MyHelper.PrintEndMessage();
-            #endregion
+
+            #endregion Static and Non Static Method having Same signature
         }
 
-        class StaticNonStaticConceptClass
+        private class StaticNonStaticConceptClass
         {
             public static void StaticMethod()
             {
                 Console.WriteLine("Static Void method");
             }
+
             public void NonStaticMethod()
             {
                 StaticMethod();
                 Console.WriteLine("Non Static Void Method");
             }
+
             public void NonStaticMethod(int i)
             {
                 Console.WriteLine(i);
@@ -246,15 +284,18 @@ namespace BasicConceptCSharpConsoleApplication
             {
                 return a + b;
             }
+
             public int GetSum2(int a, int b)
             {
                 return a + b;
             }
         }
-        #endregion
+
+        #endregion Static Non Static Concepts
 
         #region Var And Dynamic Concept
-        static void VarDynamicConcept()
+
+        private static void VarDynamicConcept()
         {
             var i = 3;
             //i = "Sachin";
@@ -271,10 +312,12 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintNoteConcept();
             MyHelper.PrintEndMessage();
         }
-        #endregion
+
+        #endregion Var And Dynamic Concept
 
         #region Out Ref Concept
-        static void OutRefConcept()
+
+        private static void OutRefConcept()
         {
             Employee refObjA = null;
             GetrefValue(ref refObjA);
@@ -301,28 +344,35 @@ namespace BasicConceptCSharpConsoleApplication
 
             MyHelper.PrintEndMessage();
         }
-        static void GetrefValue(ref Employee obj)
+
+        private static void GetrefValue(ref Employee obj)
         {
             //obj = new Employee("Assigned Object In ref Method");
         }
-        static void GetOutValue(out Employee obj)
+
+        private static void GetOutValue(out Employee obj)
         {
             obj = new Employee("Assigned Object In out Method");
         }
-        class Employee
+
+        private class Employee
         {
             public string EmployeeName { get; set; }
+
             internal Employee(string empName)
             {
                 EmployeeName = empName;
             }
         }
-        #endregion
+
+        #endregion Out Ref Concept
 
         #region String Concepts
-        static void StringConcepts()
+
+        private static void StringConcepts()
         {
-            #region String Assignment 
+            #region String Assignment
+
             MyHelper.PrintHeaderMessage("String Assignment");
 
             string firstString = "First String";
@@ -335,23 +385,30 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine("firstString:" + firstString);
             Console.WriteLine("secondString:" + secondString);
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion String Assignment
 
             #region Remove Method of String
+
             MyHelper.PrintHeaderMessage("Remove Method of String");
             string helloString = "hello";
             string newString = helloString.Remove(2);
             Console.WriteLine(newString);
             MyHelper.PrintNoteConcept("Returns a new string in which all the characters in the current instance, beginning at a specified position and continuing through the last position, have been deleted.");
-            #endregion
+
+            #endregion Remove Method of String
+
             MyHelper.PrintEndMessage();
         }
-        #endregion
+
+        #endregion String Concepts
 
         #region Exception Concepts
-        static void ExceptionConcepts()
+
+        private static void ExceptionConcepts()
         {
             #region Finally Block Importance
+
             MyHelper.PrintHeaderMessage("Finally Block Importance");
             int index = 4;
             int val = 44;
@@ -379,9 +436,11 @@ namespace BasicConceptCSharpConsoleApplication
             }
             Console.WriteLine("Remaining program");
             MyHelper.PrintNoteConcept("We can't return control from finally block however we can return from try and catch block provided there is no any further lines of code.");
-            #endregion
+
+            #endregion Finally Block Importance
 
             #region Code After Throw Statement
+
             MyHelper.PrintHeaderMessage("Code After Throw Statement");
             bool? c;
             Console.WriteLine("Main Block Start");
@@ -395,11 +454,13 @@ namespace BasicConceptCSharpConsoleApplication
             }
             Console.WriteLine("Main Block End");
             MyHelper.PrintNoteConcept("Its good practice to not write any statement after the throw or return statement.");
-            #endregion
+
+            #endregion Code After Throw Statement
 
             MyHelper.PrintEndMessage();
         }
-        static bool? TryCatchImplementation()
+
+        private static bool? TryCatchImplementation()
         {
             try
             {
@@ -423,12 +484,15 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine("Before Returning from Method");
             return true;
         }
-        #endregion
+
+        #endregion Exception Concepts
 
         #region Unsafe Code
+
         /*unsafe static void UnsafeCodeConcepts()
         {
             #region char and pointer concept
+
             MyHelper.PrintHeaderMessage("char and pointer concept");
             int* point;
             int ch = 13 * 5;
@@ -439,9 +503,11 @@ namespace BasicConceptCSharpConsoleApplication
             else
                 Console.WriteLine(Convert.ToBoolean(0));
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion char and pointer concept
 
             #region Index pointer like array
+
             MyHelper.PrintHeaderMessage("Index pointer like array");
             int[] intArray = new int[10];
             fixed (int* p = intArray)
@@ -453,9 +519,11 @@ namespace BasicConceptCSharpConsoleApplication
                 Console.ReadLine();
             }
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion Index pointer like array
 
             #region Pointer Address
+
             MyHelper.PrintHeaderMessage("Pointer Address");
             int[] nums = new int[10];
             fixed (int* p = &nums[0], p2 = nums)
@@ -476,13 +544,17 @@ namespace BasicConceptCSharpConsoleApplication
                 Console.WriteLine(arr);
             }
             MyHelper.PrintNoteConcept();
-            #endregion
+
+            #endregion Pointer Address
+
             MyHelper.PrintEndMessage();
         }*/
-        #endregion
+
+        #endregion Unsafe Code
 
         #region Interface Property Concepts
-        static void InterfacePropertyConcept()
+
+        private static void InterfacePropertyConcept()
         {
             IMyFirstInterface obj1 = new InterfaceClass();
             IMySecondInterface obj2 = new InterfaceClass();
@@ -504,11 +576,13 @@ namespace BasicConceptCSharpConsoleApplication
         {
             int MyValue { get; }
         }
+
         public interface IMySecondInterface
         {
             int MyValue { set; }
         }
-        class InterfaceClass : IMySecondInterface, IMyFirstInterface
+
+        private class InterfaceClass : IMySecondInterface, IMyFirstInterface
         {
             public int MyValue
             {
@@ -516,15 +590,17 @@ namespace BasicConceptCSharpConsoleApplication
                 set;
             }
 
-            int GetValues()
+            private int GetValues()
             {
                 return MyValue;
             }
         }
-        #endregion
+
+        #endregion Interface Property Concepts
 
         #region Interface Having Same Method Signature
-        static void InterfaceSameMethodConcept()
+
+        private static void InterfaceSameMethodConcept()
         {
             IFirstInterface objfirstinterface = new MyClassForInterface();
             ISecondInterface objsecondinterface = new MyClassForInterface();
@@ -539,33 +615,40 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintNoteConcept();
             MyHelper.PrintEndMessage();
         }
+
         public interface IFirstInterface
         {
             void f1();
         }
+
         public interface ISecondInterface
         {
             void f1();
         }
-        class MyClassForInterface : IFirstInterface, ISecondInterface
+
+        private class MyClassForInterface : IFirstInterface, ISecondInterface
         {
             void IFirstInterface.f1()
             {
                 Console.WriteLine("this is imyfirstinterface");
             }
+
             void ISecondInterface.f1()
             {
                 Console.WriteLine("this is imysecondinterface");
             }
+
             public void f1()
             {
                 Console.WriteLine("object method implementation");
             }
         }
-        #endregion
 
-        #region Method having differnt method type and same name 
-        static void MethodSignatureConcept()
+        #endregion Interface Having Same Method Signature
+
+        #region Method having differnt method type and same name
+
+        private static void MethodSignatureConcept()
         {
             MyClass obj = new MyClass();
             Console.WriteLine("Hash Code:" + obj.GetHashCode());
@@ -577,7 +660,7 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintEndMessage();
         }
 
-        class MyClass
+        private class MyClass
         {
             public MyClass()
             {
@@ -589,16 +672,19 @@ namespace BasicConceptCSharpConsoleApplication
                 Console.Out.WriteLine("GetResult string return Method Called");
                 return "";
             }
+
             public int GetResult(int a)
             {
                 Console.Out.WriteLine("GetResult int return Method Called");
                 return 1;
             }
         }
-        #endregion
+
+        #endregion Method having differnt method type and same name
 
         #region Polymorphism:Overriding, New Override Virtual Base Derived Reference and Object
-        static void PolymorphismConcepts()
+
+        private static void PolymorphismConcepts()
         {
             MyHelper.PrintHeaderMessage("Base Reference Base Object");
             MyBase obj1 = new MyBase(); obj1.f1(); obj1.f2(); obj1.f3(); obj1.f4(); obj1.f5();
@@ -620,7 +706,7 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintEndMessage();
         }
 
-        class MyBase
+        private class MyBase
         {
             public MyBase()
             {
@@ -631,24 +717,29 @@ namespace BasicConceptCSharpConsoleApplication
             {
                 Console.Out.WriteLine("Base f1 Function Called");
             }
+
             public virtual void f2()
             {
                 Console.Out.WriteLine("Base Virtual f2 Function Called");
             }
+
             public virtual void f3()
             {
                 Console.Out.WriteLine("Base Virtual f3 Function Called");
             }
+
             public void f4()
             {
                 Console.Out.WriteLine("Base f4 Function Called");
             }
+
             public virtual void f5()
             {
                 Console.Out.WriteLine("Base Virtual f5 Function Called");
             }
         }
-        class MyDerived : MyBase
+
+        private class MyDerived : MyBase
         {
             public MyDerived()
             {
@@ -664,23 +755,28 @@ namespace BasicConceptCSharpConsoleApplication
             {
                 Console.Out.WriteLine("Derived Override f2 Function Called");
             }
+
             public new void f3()
             {
                 Console.Out.WriteLine("Derived new f3 Function Called");
             }
+
             public void f4()
             {
                 Console.Out.WriteLine("Derived f4 Function Called");
             }
+
             public void f5()
             {
                 Console.Out.WriteLine("Derived f5 Function Called");
             }
         }
-        #endregion
+
+        #endregion Polymorphism:Overriding, New Override Virtual Base Derived Reference and Object
 
         #region LINQ Expression
-        static void LinqConcept()
+
+        private static void LinqConcept()
         {
             List<string> listString = new List<string>() { "sachin", "kumar", "mindtree", "infosys", "techM", "OnMobile", "WellsFargo", "sangita", "supriya", "wells", "monkey" };
             string search = Console.ReadLine().ToString();
@@ -692,19 +788,23 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintNoteConcept();
             MyHelper.PrintEndMessage();
         }
-        #endregion
+
+        #endregion LINQ Expression
 
         #region Extension Method Concept
-        static void ExtensionMethodConcept()
+
+        private static void ExtensionMethodConcept()
         {
             MyWithoutExtensionClass obj = new MyWithoutExtensionClass();
             obj.MyExtensionMethods();
             MyHelper.PrintEndMessage();
         }
-        #endregion
+
+        #endregion Extension Method Concept
 
         #region Delegates Concepts
-        static void DelegatesConcept()
+
+        private static void DelegatesConcept()
         {
             DelegatesClass obj = new DelegatesClass();
             obj.TestMethod(5);
@@ -724,12 +824,14 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintEndMessage();
         }
 
-        class DelegatesClass
+        private class DelegatesClass
         {
             //Declaring a referernce to a method without any paramaeter and bool return type
             internal delegate bool DWithoutparam();
+
             //Declaring a referernce to a method with int paramaeter and bool return type
             internal delegate bool DWithParam(int i);
+
             internal DWithoutparam del1;
             internal DWithParam del2;
 
@@ -748,10 +850,12 @@ namespace BasicConceptCSharpConsoleApplication
                 Console.WriteLine("myValue = {0}. boolResult = {1}", myValue, boolResult);
             }
         }
-        #endregion
+
+        #endregion Delegates Concepts
 
         #region Stack Queue Implementation
-        static void StackQueueConcept()
+
+        private static void StackQueueConcept()
         {
             Stack st = new Stack();
             st.Push(true);
@@ -768,13 +872,11 @@ namespace BasicConceptCSharpConsoleApplication
             MyHelper.PrintNoteConcept("We can push any type in stack");
             MyHelper.PrintEndMessage();
         }
-        #endregion
 
-        #region Single Data Type
-        #endregion
+        #endregion Stack Queue Implementation
     }
 
-    class MyHelper
+    internal class MyHelper
     {
         public static void PrintBorder()
         {
@@ -815,9 +917,9 @@ namespace BasicConceptCSharpConsoleApplication
     }
 
     #region Extension Method Class and Implementation
+
     public class MyWithoutExtensionClass
     {
-
     }
 
     public static class XX
@@ -827,5 +929,6 @@ namespace BasicConceptCSharpConsoleApplication
             Console.WriteLine("My Extension Methods");
         }
     }
-    #endregion
+
+    #endregion Extension Method Class and Implementation
 }
