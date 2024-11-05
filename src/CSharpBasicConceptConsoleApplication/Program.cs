@@ -903,12 +903,12 @@ namespace BasicConceptCSharpConsoleApplication
             MyPrintHelper.PrintEndMessage();
         }
 
-        static void SwapFunction(ref string a, ref string b)
+        static void SwapFunction(ref string firstString, ref string secondString)
         {
             string temp;
-            temp = a;
-            a = b;
-            b = temp;
+            temp = firstString;
+            firstString = secondString;
+            firstString = temp;
         }
 
         static void SwapFunction<T>(T myFirstClassForSwapping, T mySecondClassForSwapping) where T : MyClassForSwapping
