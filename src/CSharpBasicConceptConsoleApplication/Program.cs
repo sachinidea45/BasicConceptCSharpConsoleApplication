@@ -50,6 +50,7 @@ namespace BasicConceptCSharpConsoleApplication
                 "15. Extension Method Concept",
                 "16. Delegate Concept",
                 "17. Stack Queue Concept",
+                "18. Swapping",
             };
         }
         #endregion
@@ -145,7 +146,11 @@ namespace BasicConceptCSharpConsoleApplication
 
                     case "17":
                         StackQueueConcept();
-                        break; ;
+                        break;
+
+                    case "18":
+                        Swapping();
+                        break;
 
                     default:
                         Console.WriteLine("You have selected a wrong option. Please Try Again!!");
@@ -870,5 +875,55 @@ namespace BasicConceptCSharpConsoleApplication
         }
 
         #endregion Stack Queue Implementation
+
+        #region Swapping
+
+        private static void Swapping()
+        {
+            // question on swap function for variable and object
+            MyPrintHelper.PrintHeaderMessage("Swapping Concepts for Object");
+
+            MyClassForSwapping myFirstClassForSwapping = new MyClassForSwapping(),
+                mySecondClassForSwapping = new MyClassForSwapping();
+            myFirstClassForSwapping.myIntValue = 10;
+            mySecondClassForSwapping.myIntValue = 20;
+            SwapFunction(myFirstClassForSwapping, mySecondClassForSwapping);
+            Console.WriteLine(myFirstClassForSwapping.myIntValue);
+            Console.WriteLine(mySecondClassForSwapping.myIntValue);
+
+            MyPrintHelper.PrintPointsToRememberMessage();
+            MyPrintHelper.PrintNoteConcept("When we pass any object it will pass as value and it won't change. \nHowever, When we pass any object as ref it will pass as reference and it will change");
+
+
+            MyPrintHelper.PrintHeaderMessage("Swapping Concepts for Variable");
+            string a = "Sachin", b = "Kumar";
+            SwapFunction(ref a, ref b);
+            Console.WriteLine(a + b);
+            MyPrintHelper.PrintNoteConcept();
+            MyPrintHelper.PrintEndMessage();
+        }
+
+        static void SwapFunction(ref string a, ref string b)
+        {
+            string temp;
+            temp = a;
+            a = b;
+            b = temp;
+        }
+
+        static void SwapFunction<T>(T myFirstClassForSwapping, T mySecondClassForSwapping) where T : MyClassForSwapping
+        {
+            T temp;
+            temp = myFirstClassForSwapping;
+            myFirstClassForSwapping = mySecondClassForSwapping;
+            mySecondClassForSwapping = temp;
+        }
+
+        class MyClassForSwapping
+        {
+            public int myIntValue;
+        }
+
+        #endregion Swapping
     }
 }
