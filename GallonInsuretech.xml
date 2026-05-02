@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Gallon Architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Title -->
+        <mxCell id="title" value="Gallon InsureTech - Enterprise Cloud Architecture" style="text;html=1;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="800" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Edge Layer -->
+        <mxCell id="edge" value="Edge Layer&#xa;- OCI WAF&#xa;- Internet Gateway&#xa;- Public Load Balancer" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="300" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- API Layer -->
+        <mxCell id="api" value="API Layer&#xa;- OCI API Gateway&#xa;- Auth / Routing / Rate Limiting" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="500" y="100" width="300" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Application Layer -->
+        <mxCell id="app" value="Application Layer&#xa;ASP.NET Core Microservices&#xa;- Auth Service&#xa;- User Service&#xa;- Quotation Service&#xa;- Policy Service&#xa;- Payment Service&#xa;- Notification Service" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="350" height="200" as="geometry"/>
+        </mxCell>
+
+        <!-- Database Layer -->
+        <mxCell id="db" value="Database Layer&#xa;- Oracle Database&#xa;- HA / Backup / Encryption" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="550" y="300" width="300" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- DevOps -->
+        <mxCell id="devops" value="CI/CD&#xa;- Azure DevOps Pipelines" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;" vertex="1" parent="1">
+          <mxGeometry x="100" y="550" width="300" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Security -->
+        <mxCell id="security" value="Security Layer&#xa;- Bastion Host&#xa;- NSG / IAM&#xa;- JWT / RBAC" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;" vertex="1" parent="1">
+          <mxGeometry x="500" y="550" width="300" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Future -->
+        <mxCell id="future" value="Future Phase&#xa;- OCI Kubernetes Engine (OKE)&#xa;- Containers / Helm / Auto Scaling" style="rounded=1;whiteSpace=wrap;fillColor=#d0e0e3;" vertex="1" parent="1">
+          <mxGeometry x="900" y="300" width="300" height="150" as="geometry"/>
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="e1" edge="1" parent="1" source="edge" target="api" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" edge="1" parent="1" source="api" target="app" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" edge="1" parent="1" source="app" target="db" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" edge="1" parent="1" source="devops" target="app" style="endArrow=block;dashed=1;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" edge="1" parent="1" source="security" target="app" style="endArrow=block;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
